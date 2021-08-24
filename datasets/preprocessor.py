@@ -33,7 +33,7 @@ def build_from_path(hparams, mel_dir, linear_dir, wav_dir, n_jobs=12, tqdm=lambd
 		for line in f:
 			parts = line.strip().split('|')
 			wav_path = parts[0]
-			basename = wav_path
+			basename = wav_path.replace("wav_wavenet/","")
 			text = parts[1]
 			futures.append(executor.submit(partial(_process_utterance, mel_dir, linear_dir, wav_dir, basename, wav_path, text, hparams)))
 			index += 1
