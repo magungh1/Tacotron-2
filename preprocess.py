@@ -32,6 +32,7 @@ def write_metadata(metadata, out_dir):
 	print('Max audio timesteps length: {}'.format(max(m[3] for m in metadata)))
 
 def run_preprocess(args, hparams):
+	output_folder = os.path.join(args.base_dir, args.output)
 	preprocess(args, output_folder, hparams)
 
 
